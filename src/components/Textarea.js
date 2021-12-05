@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 export default function Textarea(props) {
+
     const handleupclick = ()=>{
         let con=text.toUpperCase()
         setText(con)
@@ -14,41 +15,17 @@ export default function Textarea(props) {
         let con=""
         setText(con)
     }
-    const handlefirclick =()=>{
-        let te=text.charAt(0)
-        let con=te.toUpperCase()
-        setText(con + text.slice(1))
+      
+    const handlecopy = ()=>{
+        const text=document.getElementById('mybox');        
+        text.select();
+        navigator.clipboard.writeText(text.value);
     }
-    
-    const handlecapclick =()=>{
-        const words=text.split(" ");
-        for (let i = 0; i < words.length; i++) {
-            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-        }              
-    }
-
-//     function uppercase(text)
-// {
-//   var array1 = text.split(' ');
-//   var newarray1 = [];
-    
-//   for(var x = 0; x < array1.length; x++){
-//       newarray1.push(array1[x].charAt(0).toUpperCase()+array1[x].slice(1));
-//   }
-//   return newarray1.join(' ');
-// }
-// console.log(uppercase("the quick brown fox"));
-    
     const handleextspace = ()=>{
         let ext=text.split(/[ ]+/);
         setText(ext.join(" "))
     }
     
-const handlecopy = ()=>{
-    const text=document.getElementById('mybox');        
-    text.select();
-    navigator.clipboard.writeText(text.value);
-}
 const handleonchange =(event)=>{
     setText(event.target.value)
 }
@@ -65,10 +42,6 @@ return (
             <button className='btn btn-primary mx-4' onClick={handledownclick}>convert to lowercase</button>
 
             <button className='btn btn-primary mx-4' onClick={handleclearclick}>clear</button>
-
-            <button className='btn btn-primary mx-4' onClick={handlefirclick}>Manage</button>
-
-            <button className='btn btn-primary mx-4' onClick={handlecapclick}>Capitalize</button>
 
             <button className='btn btn-primary mx-4' onClick={handlecopy}>Copy</button>
 
