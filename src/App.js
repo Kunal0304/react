@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import Navbar from './components/Navbar';
-import Textarea from './components/Textarea';
+// import Navbar from './components/Navbar';
+// import Textarea from './components/Textarea';
 import './App.css';
+import Counter from './components/Counter';
+import Table from './components/Table';
 
 function App() {
   const [mode, setmode] = useState('light');
@@ -16,14 +18,16 @@ function App() {
 
     }
   }
+  
 
   return (
     <>
-      <Navbar Navbar="Cool" Find="Searching" mode={mode} toggleMode={toggleMode} />
-      <div className='container my-5' >
+      {/* <Navbar Navbar="Cool" Find="Searching" mode={mode} toggleMode={toggleMode} /> */}
+      {/* <div className='container my-5' >
         <Textarea heading="Enter text something" mode={mode}/>
-
-      </div>
+      </div> */}
+      <Counter />
+      
     </>
   );
 }
